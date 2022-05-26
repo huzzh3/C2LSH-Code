@@ -21,9 +21,9 @@ cd bin
 1. create the folders (Make sure you are in the root directory)
 
 ```bash
-mkdir data/sift
-mkdir proj/sift
-mkdir res/sift
+mkdir data/Sift
+mkdir proj/Sift
+mkdir res/Sift
 ```
 
 2. copy the sift.q and sift.ds to the 'data/sift' folder

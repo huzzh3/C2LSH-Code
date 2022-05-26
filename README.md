@@ -26,7 +26,7 @@ mkdir proj/Sift
 mkdir res/Sift
 ```
 
-2. copy the sift.q and sift.ds to the 'data/sift' folder
+2. copy the Sift.q and Sift.ds to the 'data/Sift' folder
 
 3. execute the program
 

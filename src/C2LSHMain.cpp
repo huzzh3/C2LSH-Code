@@ -609,6 +609,14 @@ int main(int nargs, char **args) {
 			// Output hash tables to file.
 			WriteProjectedPoints(&initializor);
 
+			// free
+			for (int i = 0; i < nPoints; i++) {
+				free(dataSetPoints[i]->coordinates);
+				free(dataSetPoints[i]);
+			}
+			free(dataSetPoints);
+			free(initializor.hashFunctionList);
+
 			printf("\nConstruction finish!\n");
 
 		} else {

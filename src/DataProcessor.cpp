@@ -59,6 +59,9 @@ void readDataSetFromFile(char *filename) {
 		dataSetPoints[i] = readPoint(f);
 		dataSetPoints[i]->index = i;
 	}
+
+	fclose(f);
+	
 	printf("\nCoordinate's Range: [%lf, %lf]\n", minCoordinate, maxCoordinate);
 }
 

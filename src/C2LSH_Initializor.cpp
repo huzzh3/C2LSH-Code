@@ -115,7 +115,7 @@ void ProjectAllPoints(PC2LSH_InitializorT initializor) {
 		WriteOneHashTable(initializor, i);
 		// Clear this hash table from memory
 		initializor->hashTableList[i].clear();
-
+		free(initializor->hashFunctionList[i].a);
 	}
 }
 

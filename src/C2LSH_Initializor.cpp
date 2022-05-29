@@ -85,10 +85,11 @@ void ProjectAllPoints(PC2LSH_InitializorT initializor) {
 	double value = 0;
 	int intervalID = -1;
 
+	NewHashTable aHashTable;
+
 	// Projecting process starts.
 	for (int i = 0; i < k; i++) {
-		NewHashTable aHashTable;
-		initializor->hashTableList.push_back(aHashTable);
+		// initializor->hashTableList.push_back(aHashTable);
 
 		// Retrieve all points.
 		for (int j = 0; j < initializor->nPoints; j++) {
@@ -108,13 +109,16 @@ void ProjectAllPoints(PC2LSH_InitializorT initializor) {
 			intervalID = (int) (value);
 
 			// Modified on 2012-06-07 by Junho
-			initializor->hashTableList[i][intervalID].push_back(j);
+			// initializor->hashTableList[i][intervalID].push_back(j);
+
+			aHashTable[intervalID].push_back(j);
 		}
 
 		// Output this hash table to file
-		WriteOneHashTable(initializor, i);
+		WriteOneHashTable(initializor, i, aHashTable);
 		// Clear this hash table from memory
-		initializor->hashTableList[i].clear();
+		// initializor->hashTableList[i].clear();
+		aHashTable.clear();
 		free(initializor->hashFunctionList[i].a);
 	}
 }
@@ -333,7 +337,7 @@ void WriteHashFunctionToFile(PC2LSH_InitializorT initializor) {
 
 // 2011-10-01 add
 // Output a hash table to file.
-void WriteOneHashTable(PC2LSH_InitializorT initializor, int dimensionIndex) {
+void WriteOneHashTable(PC2LSH_InitializorT initializor, int dimensionIndex, NewHashTable aHashTable) {
 	fstream file;
 
 	char buffer[100];
@@ -341,7 +345,8 @@ void WriteOneHashTable(PC2LSH_InitializorT initializor, int dimensionIndex) {
 	char hashTableFolder[1000];
 
 	char filename[1000];
-	NewHashTable& hashTable = initializor->hashTableList[dimensionIndex];
+	// NewHashTable& hashTable = initializor->hashTableList[dimensionIndex];
+	NewHashTable& hashTable = aHashTable;
 	//	vector<NewHashTable>& hashTableList = initializor->hashTableList;
 
 	strcpy(hashTableFolder, initializor->folderPath);

@@ -190,7 +190,7 @@ void WriteHashFunctionToFile(PC2LSH_InitializorT initializor);
 /*
  * Output a hash table to file
  */
-void WriteOneHashTable(PC2LSH_InitializorT initializor, int dimensionIndex);
+void WriteOneHashTable(PC2LSH_InitializorT initializor, int dimensionIndex, NewHashTable aHashTable);
 
 /*
  * Read an offset table from file

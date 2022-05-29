@@ -61,7 +61,7 @@ void readDataSetFromFile(char *filename) {
 	}
 
 	fclose(f);
-	
+
 	printf("\nCoordinate's Range: [%lf, %lf]\n", minCoordinate, maxCoordinate);
 }
 
@@ -116,7 +116,7 @@ void writeGroundTruth(char* queryFilePath, char* groundTruthFilePath, int nQueri
 			fprintf(groundTruthFile, " %lf", groundTruthes[k]);
 		}
 		fprintf(groundTruthFile, "\n");
-		printf("%d\n", i + 1);
+		// printf("%d\n", i + 1);
 	}
 	fclose(queryFile);
 	fclose(groundTruthFile);
